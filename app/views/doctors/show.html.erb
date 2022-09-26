@@ -11,6 +11,8 @@
 <h3>Patients:</h3>
 <ul id='patients-list'>
   <%@doctor.patients.each do |patient|%>
-    <li>Name: <%=patient.name%> - <%=patient.age%> years old</li>
+    <li id="patient-<%= patient.id %>">Name: <%= patient.name %> - <%= patient.age %> years old
+      <%= button_to "Remove from Caseload", doctor_path(@doctor), method: :delete, params: { patient_id: patient.id } %>
+      </li>
   <%end%>
 </ul>

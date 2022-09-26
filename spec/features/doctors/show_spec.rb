@@ -60,7 +60,7 @@ RSpec.describe 'Doctor show page', type: :feature do
 
     describe 'Doctor Delete' do
       it "Next to each patient's name, I see a button to remove that patient from that doctor's caseload" do
-        within '#patient-list' do 
+        within '#patients-list' do 
           geneva.patients.each do |patient|
             within "#patient-#{patient.id}" do
               expect(page).to have_button("Remove from Caseload")
@@ -70,7 +70,7 @@ RSpec.describe 'Doctor show page', type: :feature do
       end
 
       it "When I click that button for one patient I'm brought back to the Doctor's show page" do
-        within '#patient-list' do 
+        within '#patients-list' do 
           within "#patient-#{ken.id}" do
             expect(page).to have_content("Name: #{ken.name} - #{ken.age} years old")
             click_button("Remove from Caseload")
