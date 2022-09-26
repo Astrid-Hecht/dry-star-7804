@@ -19,7 +19,7 @@ RSpec.describe DoctorPatient do
   describe 'class methods' do 
     describe '#find_match' do
       it 'finds one doctorpatient relation obj' do
-        expect(DoctorPatient.find_match(geneva.id, ken.id).count).to eq(1)
+        expect(DoctorPatient.find_match(geneva.id, ken.id)).to_not be_a(Array)
       end
 
       it 'finds the correct relation obj' do
