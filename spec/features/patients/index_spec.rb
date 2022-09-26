@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Doctor show page', type: :feature do
-  describe "As a visitor When I visit a doctor's show page" do
+RSpec.describe 'Patient index page', type: :feature do
+  describe "As a visitor When I visit the patient index page" do
 
     let!(:last_light) {Hospital.create!(name:'Last Light of Baleros')}
     let!(:shh) {Hospital.create!(name:'Sacred Heart Hospital')}
