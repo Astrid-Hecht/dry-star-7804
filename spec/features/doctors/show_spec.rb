@@ -57,5 +57,28 @@ RSpec.describe 'Doctor show page', type: :feature do
         expect(page).to_not have_content("Name: #{mary.name} - #{mary.age} years old")
       end
     end
+
+    describe 'Doctor Delete' do
+      it "Next to each patient's name, I see a button to remove that patient from that doctor's caseload" do
+        within '#patient-list' do 
+          geneva.patients.each do |patient|
+            within "#patient-#{patient.id}" do
+              expect(page).to have_button("Remove from Caseload")
+            end
+          end
+        end
+      end
+
+      it "When I click that button for one patient I'm brought back to the Doctor's show page"
+        within '#patient-list' do 
+          within "#patient-#{ken.id}" do
+            expect(page).to have_content("Name: #{ken.name} - #{ken.age} years old")
+            click_button("Remove from Caseload")
+          end
+        end
+        expect(current_path).to eq(doctor_path(geneva))
+        expect(page).to_not have_content("Name: #{ken.name} - #{ken.age} years old")
+      end
+    end
   end
 end
