@@ -69,7 +69,7 @@ RSpec.describe 'Doctor show page', type: :feature do
         end
       end
 
-      it "When I click that button for one patient I'm brought back to the Doctor's show page"
+      it "When I click that button for one patient I'm brought back to the Doctor's show page" do
         within '#patient-list' do 
           within "#patient-#{ken.id}" do
             expect(page).to have_content("Name: #{ken.name} - #{ken.age} years old")
