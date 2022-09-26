@@ -6,9 +6,9 @@ RSpec.describe 'Doctor show page', type: :feature do
     let!(:last_light) {Hospital.create!(name:'Last Light of Baleros')}
     let!(:shh) {Hospital.create!(name:'Sacred Heart Hospital')}
 
-    let!(:geneva) {last_light.doctors.create!(name: 'Dr. Geneva', specialty: 'Trauma', univeristy: 'Some School State')}
-    let!(:house) {last_light.doctors.create!(name: 'House MD', specialty: 'Who knows', univeristy: 'Some Other State')}
-    let!(:braff) {shh.doctors.create!(name: 'Snack Braff', specialty: 'Wrestling', univeristy: 'WV School of Medical Dance')}
+    let!(:geneva) {last_light.doctors.create!(name: 'Dr. Geneva', specialty: 'Trauma', university: 'Some School State')}
+    let!(:house) {last_light.doctors.create!(name: 'House MD', specialty: 'Who knows', university: 'Some Other State')}
+    let!(:braff) {shh.doctors.create!(name: 'Snack Braff', specialty: 'Wrestling', university: 'WV School of Medical Dance')}
 
     let!(:ken) {geneva.patients.create!(name: 'Ken', age: 22)}
     let!(:jordie) {geneva.patients.create!(name: 'Jordie', age: 22)}
@@ -35,9 +35,9 @@ RSpec.describe 'Doctor show page', type: :feature do
         end
 
         within '#dr-uni' do
-          expect(page).to have_content(geneva.univeristy)
-          expect(page).to_not have_content(house.univeristy)
-          expect(page).to_not have_content(braff.univeristy)
+          expect(page).to have_content(geneva.university)
+          expect(page).to_not have_content(house.university)
+          expect(page).to_not have_content(braff.university)
         end
       end
     end
