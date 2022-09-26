@@ -39,6 +39,7 @@ RSpec.describe 'Doctor show page', type: :feature do
           expect(page).to_not have_content(house.univeristy)
           expect(page).to_not have_content(braff.univeristy)
         end
+      end
     end
 
     it 'And I see the name of the hospital where this doctor works' do
